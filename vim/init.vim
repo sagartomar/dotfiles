@@ -90,6 +90,14 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 
+inoremap ' ''<left>
+inoremap " ""<left>
+inoremap ` ``<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap < <><left>
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
