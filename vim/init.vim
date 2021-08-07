@@ -104,6 +104,7 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -196,3 +197,12 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Show all diagnostics.
 nnoremap <silent><nowait> <leader>ld  :<C-u>CocList diagnostics<cr>
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+        ensure_installed = {"c", "python", "go"},
+        highlight = {
+                enable = true
+              }
+      }
+EOF
