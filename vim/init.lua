@@ -37,6 +37,10 @@ local use = require("packer").use
 require("packer").startup(function()
     use 'wbthomason/packer.nvim'
     use 'morhetz/gruvbox'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
     use { 'junegunn/fzf', run = ":call fzf#install()" }
     use { 'junegunn/fzf.vim' }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -50,6 +54,10 @@ require("packer").startup(function()
 end)
 
 vim.cmd("autocmd vimenter * ++nested colorscheme gruvbox")
+
+require('lualine').setup {
+    options = { theme = 'gruvbox' }
+}
 
 vim.g.mapleader = " "
 vim.g.fzf_command_prefix = "Fzf"
