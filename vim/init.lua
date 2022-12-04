@@ -69,7 +69,7 @@ vim.keymap.set('n', '<leader>fw', ':FzfWindows<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>fl', ':FzfLines<CR>', { noremap = true })
 
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = { "c", "lua", "python", "go", "rust" },
+    ensure_installed = { "c", "lua", "python", "go", "rust", "javascript", "typescript", "tsx" },
     highlight = {
         enable = true
     }
@@ -124,7 +124,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'gopls', 'sumneko_lua' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'gopls', 'sumneko_lua', 'tsserver' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         -- on_attach = my_custom_on_attach,
