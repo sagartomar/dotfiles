@@ -36,7 +36,7 @@ vim.keymap.set('i', "'", "''<left>", { noremap = true, silent = false })
 local use = require("packer").use
 require("packer").startup(function()
     use 'wbthomason/packer.nvim'
-    use 'morhetz/gruvbox'
+    use 'sainnhe/edge'
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -54,10 +54,10 @@ require("packer").startup(function()
     use 'lukas-reineke/indent-blankline.nvim'
 end)
 
-vim.cmd("autocmd vimenter * ++nested colorscheme gruvbox")
+vim.cmd("colorscheme edge")
 
 require('lualine').setup {
-    options = { theme = 'gruvbox' }
+    options = { theme = 'edge' }
 }
 
 vim.g.mapleader = " "
