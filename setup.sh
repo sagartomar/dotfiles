@@ -6,5 +6,6 @@ mkdir -p ~/.config/nvim/
 # Setup the symlinks
 # symlink for neovim
 ln -s `realpath ./vim/init.lua` ~/.config/nvim/
+ln -s `realpath ./vim/lua` ~/.config/nvim/
 # symlink for tmux
 ln -s `realpath ./tmux/.tmux.conf` ~/
