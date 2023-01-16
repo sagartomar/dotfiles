@@ -1,3 +1,6 @@
+require('mason').setup()
+local mason_lspconfig = require('mason-lspconfig')
+mason_lspconfig.setup()
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -35,13 +38,12 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
 
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'gopls', 'sumneko_lua', 'tsserver' }
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-        -- on_attach = my_custom_on_attach,
-        on_attach = on_attach,
-        flags = lsp_flags,
-        capabilities = capabilities,
-    }
-end
+mason_lspconfig.setup_handlers {
+    function(server_name)
+        lspconfig[server_name].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            flags = lsp_flags,
+        }
+    end
+}
