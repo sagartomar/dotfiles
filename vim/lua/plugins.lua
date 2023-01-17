@@ -6,8 +6,10 @@ require("packer").startup(function()
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-    use { 'junegunn/fzf', run = ":call fzf#install()" }
-    use { 'junegunn/fzf.vim' }
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
