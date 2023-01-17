@@ -7,6 +7,10 @@ require("packer").startup(function()
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use {
+        'nvim-tree/nvim-tree.lua',
+        requires = { 'nvim-tree/nvim-web-devicons' }
+    }
+    use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }

@@ -26,4 +26,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.cmdheight = 2
 vim.opt.updatetime = 300
 
+-- Reuired for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.g.mapleader = " "
