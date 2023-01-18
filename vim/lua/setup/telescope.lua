@@ -7,4 +7,9 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
 vim.keymap.set('n', '<leader>fsd', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>fsw', builtin.lsp_workspace_symbols, {})
-vim.keymap.set('n', '<leader>fd', builtin.diagnostics, {})
+-- Diagnostics for current buffer
+vim.keymap.set('n', '<leader>fdb', function()
+    builtin.diagnostics({ bufnr = 0 })
+end, {})
+-- Diagnostics for workspace
+vim.keymap.set('n', '<leader>fdw', builtin.diagnostics, {})
